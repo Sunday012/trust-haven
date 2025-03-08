@@ -5,7 +5,11 @@ import { Button } from "@/components/ui/button"
 import { Wallet } from "lucide-react"
 // import { useToast } from "@/components/ui/use-toast"
 
-export function ConnectWalletButton() {
+type WalletProps = {
+  address: string
+}
+
+export function ConnectWalletButton({address} : WalletProps) {
   const [isConnected, setIsConnected] = useState(false)
   const [walletAddress, setWalletAddress] = useState("")
 //   const { toast } = useToast()
@@ -42,11 +46,11 @@ export function ConnectWalletButton() {
     // })
   }
 
-  if (isConnected) {
+  if (address) {
     return (
       <Button variant="outline" onClick={disconnectWallet} className="border-primary/30 hover:border-primary/50">
         <Wallet className="h-4 w-4 mr-2 text-primary" />
-        {walletAddress.slice(0, 6)}...{walletAddress.slice(-4)}
+        {address.slice(0, 6)}...{address.slice(-4)}
       </Button>
     )
   }

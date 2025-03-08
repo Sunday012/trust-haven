@@ -4,6 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { ConnectWalletButton } from "@/components/connect-wallet-button"
 import { Menu, X, Home, Search, Building2, FileText, MessageSquare } from "lucide-react"
+import WalletConnection from "./wallet-connection"
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -35,7 +36,7 @@ export function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-            <ConnectWalletButton />
+            <WalletConnection />
           </div>
 
           <div className="md:hidden flex items-center">
@@ -83,7 +84,7 @@ export function Navbar() {
               About
             </Link>
             <div className="pt-2">
-              <ConnectWalletButton />
+              <WalletConnection />
             </div>
           </div>
         </div>
